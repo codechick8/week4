@@ -12,4 +12,5 @@ MoviesApp::Application.routes.draw do
 
   delete '/movies/:id', controller: 'movies', action: 'destroy'
 
+  
 end
