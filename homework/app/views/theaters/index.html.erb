@@ -1,0 +1,41 @@
+<center> 
+
+<h1> Theater Database </h1>
+
+<%= image_tag 'http://inlandpolitics.com/blog/wp-content/uploads/2011/01/movie-theater.jpg', :size => "260x180" %> 
+<br>
+<br>
+
+<p><%= link_to "New Theater", new_theater_url %></p>
+<br>
+
+<table>
+	<thead> 
+		<tr>
+			<th> Name </th>
+			<th> Address </th>
+			<th> Phone Number </th>
+			<th> Edit/Delete </th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @theaters.each do |theater| %>
+			<tr>
+				<td> <%= link_to theater.name, theater_url(theater.id)%> </td>
+				<td> <%=link_to theater.address, "http://maps.google.com/?q=#{theater.address}" %> </td>
+				<td> <%=theater.phone_number %></td>
+				<td> 
+					<%= link_to "Edit", edit_theater_path(theater) %>
+					<%= link_to "Delete", theater, :method => :delete %>
+				</td>
+				
+			</tr>
+		<%end%>
+
+	</tbody>
+
+</table>
+
+</center>
